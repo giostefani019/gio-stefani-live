@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gio Stefani — Next Shows</title>
+<meta name="description" content="Le prossime date live di Gio Stefani: chitarra, bodhran, violino e progetti musicali.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0d10;
+  --panel:#12161b;
+  --panel-2:#171d24;
+  --line:rgba(255,255,255,.09);
+  --text:#eef2f6;
+  --muted:#9aa7b4;
+  --gold:#e8b866;
+  --gold-2:#f4d29a;
+  --green:#7fc9a2;
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+    radial-gradient(900px 500px at 80% -10%, rgba(232,184,102,.16), transparent 60%),
+    radial-gradient(700px 450px at 10% 10%, rgba(127,201,162,.10), transparent 60%),
+    var(--bg);
+  color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+  line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+a{color:var(--gold-2);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+header{padding:72px 0 34px;text-align:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);
+  border:1px solid rgba(232,184,102,.35);border-radius:999px;padding:8px 16px;background:rgba(232,184,102,.07)
+}
+h1{
+  font-family:'Playfair Display',serif;font-weight:800;
+  font-size:clamp(3rem,9vw,6.5rem);line-height:.95;margin:22px 0 8px;letter-spacing:-.02em
+}
+h1 span{display:block;color:var(--gold)}
+.sub{color:var(--muted);max-width:620px;margin:14px auto 0;font-size:1.05rem}
+.updated{
+  margin-top:20px;display:inline-block;color:var(--muted);font-size:.85rem;
+  border:1px solid var(--line);background:rgba(255,255,255,.03);padding:7px 14px;border-radius:999px
+}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:28px 0 8px}
+nav a{
+  padding:8px 14px;border-radius:999px;border:1px solid var(--line);color:var(--muted);
+  background:rgba(255,255,255,.03);font-size:.9rem;transition:.2s
+}
+nav a:hover{color:var(--text);border-color:rgba(232,184,102,.5);text-decoration:none}
+main{padding-bottom:80px}
+.month{margin-top:54px}
+.month-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px}
+.month-title{
+  font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);
+  font-weight:700;margin:0;letter-spacing:-.01em
+}
+.month-title small{display:block;font-family:Inter;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.count{color:var(--muted);font-size:.85rem;white-space:nowrap}
+.shows{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+.show{
+  position:relative;overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);
+  background:linear-gradient(160deg,var(--panel),var(--panel-2));
+  padding:22px;display:flex;flex-direction:column;gap:14px;
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease
+}
+.show:hover{transform:translateY(-4px);border-color:rgba(232,184,102,.45);box-shadow:0 20px 45px rgba(0,0,0,.35)}
+.show::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:3px;
+  background:linear-gradient(90deg,var(--gold),transparent)
+}
+.date{
+  display:flex;align-items:center;gap:12px;color:var(--muted);font-size:.82rem;
+  text-transform:uppercase;letter-spacing:.14em
+}
+.date b{
+  font-family:'Playfair Display',serif;font-size:2.1rem;color:var(--text);
+  line-height:1;letter-spacing:0
+}
+.date .day{display:flex;flex-direction:column}
+.title{font-size:1.35rem;font-weight:700;margin:0}
+.venue{color:var(--gold-2);font-weight:600}
+.place{color:var(--muted);font-size:.95rem}
+.desc{color:#cfd7df;font-size:.95rem}
+.lineup{border-top:1px dashed var(--line);padding-top:12px;font-size:.92rem;color:var(--muted)}
+.lineup strong{color:var(--text);font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.tag{
+  font-size:.76rem;letter-spacing:.05em;padding:6px 11px;border-radius:999px;
+  border:1px solid var(--line);color:var(--muted);background:rgba(255,255,255,.04)
+}
+.tag.free{color:var(--green);border-color:rgba(127,201,162,.35);background:rgba(127,201,162,.08)}
+.tag.ticket{color:var(--gold);border-color:rgba(232,184,102,.35);background:rgba(232,184,102,.08)}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:999px;
+  border:1px solid rgba(232,184,102,.4);color:var(--gold-2);font-size:.88rem;font-weight:600;
+  background:rgba(232,184,102,.08);transition:.2s
+}
+.btn:hover{background:rgba(232,184,102,.16);text-decoration:none}
+.projects{margin-top:80px}
+.projects h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,4vw,2.4rem);margin:0 0 8px}
+.projects p{color:var(--muted);max-width:680px}
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:24px}
+.project{
+  border:1px solid var(--line);border-radius:16px;padding:18px;background:rgba(255,255,255,.03);
+  transition:.2s
+}
+.project:hover{border-color:rgba(232,184,102,.4);transform:translateY(-3px)}
+.project h3{margin:0 0 6px;font-size:1.08rem}
+.project span{color:var(--muted);font-size:.88rem}
+footer{
+  border-top:1px solid var(--line);margin-top:80px;padding:28px 0 40px;color:var(--muted);
+  font-size:.88rem;text-align:center
+}
+footer strong{color:var(--text)}
+@media(max-width:600px){
+  header{padding-top:52px}
+  .show{padding:18px}
+  .month-head{align-items:start;flex-direction:column}
+}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <div class="eyebrow">● Live 2026</div>
+  <h1>Gio Stefani<span>Next Shows</span></h1>
+  <p class="sub">Chitarra acustica, bodhran, violino e progetti tra folk, blues, musica d’autore e live band. Ecco le date della stagione.</p>
+  <div class="updated">Aggiornato al 30 giugno 2026</div>
+  <nav>
+    <a href="#giugno">Giugno</a><a href="#luglio">Luglio</a><a href="#agosto">Agosto</a><a href="#settembre">Settembre</a><a href="#ottobre">Ottobre</a><a href="#novembre">Novembre</a><a href="#progetti">Progetti</a>
+  </nav>
+</header>
+
+<main class="wrap">
+
+<section class="month" id="giugno">
+  <div class="month-head">
+    <h2 class="month-title"><small>2026</small>Giugno</h2>
+    <div class="count">2 date</div>
+  </div>
+  <div class="shows">
+    <article class="show">
+      <div class="date"><b>20</b><span class="day">Sabato<br>Giugno</span></div>
+      <h3 class="title">Blues Sisters</h3>
+      <div><span class="venue">Auditorium Pierangelo Bertoli</span><br><span class="place">Sassuolo (MO)</span></div>
+      <p class="desc">Blues, donne e verità.</p>
+      <div class="lineup"><strong>Con:</strong> Claudio Ughetti — fisarmonica · Isabella Dapinguente — voce narrante</div>
+      <div class="tags"><span class="tag">Blues</span><span class="tag">Teatro</span></div>
+      <div class="cta"><a class="btn" href="https://dapinguente.it/2026/06/10/blues-sisters-sassuolo/">Info evento →</a></div>
+    </article>
+    <article class="show">
+      <div class="date"><b>21</b><span class="day">Domenica<br>Giugno</span></div>
+      <h3 class="title"><a href="https://www.instagram.com/bifolk_/">☘️ BiFolk</a></h3>
+      <div><span class="venue">Oratorio SS. Consolata</span><br><span class="place">Sassuolo (MO)</span></div>
+      <p class="desc">St. Patrick Summer Edition.</p>
+      <div class="lineup"><strong>Con:</strong> Gio Stefani — chitarra acustica, bodhran · Lucio Stefani — violino</div>
+      <div class="tags"><span class="tag">Folk</span><span class="tag">Irish</span></div>
+      <div class="cta"><a class="btn" href="https://www.instagram.com/p/DZS_I4aCPa_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">Info evento →</a></div>
+    </article>
+  </div>
+</section>
+
+<section class="month" id="luglio">
+  <div class="month-head">
+    <h2 class="month-title"><small>2026</small>Luglio</h2>
+    <div class="count">6 date</div>
+  </div>
+  <div class="shows">
+    <article class="show">
+      <div class="date"><b>18</b><span class="day">Sabato<br>Luglio</span></div>
+      <h3 class="title"><a href="https://www.instagram.com/irio_band/">☀️ I Rio</a></h3>
+      <div><span class="venue">Cerredolo</span><br><span class="place">Reggio Emilia</span></div>
+      <div class="tags"><span class="tag">Live band</span></div>
+      <div class="cta"><a class="btn" href="https://www.instagram.com/irio_band/">Info →</a></div>
+    </article>
+    <article class="show">
+      <div class="date"><b>23</b><span class="day">Giovedì<br>Luglio</span></div>
+      <h3 class="title"><a href="https://www.instagram.com/irio_band/">☀️ I Rio</a></h3>
+      <div><span class="venue">Chiavica di Mordano</span><br><span class="place">Bologna</span></div>
+      <p class="desc"><a href="https://www.facebook.com/rock.atuttabirra">Rock a tutta birra</a></p>
+      <div class="tags"><span class="tag free">Ingresso gratuito</span></div>
+    </article>
+    <article class="show">
+      <div class="date"><b>25</b><span class="day">Sabato<br>Luglio</span></div>
+      <h3 class="title">JJOE</h3>
+      <div><span class="venue">Parco dei Popoli</span><br><span class="place">Castellarano (RE)</span></div>
+      <p class="desc">JJOE in Depeche Mode — #ULTRA Live Set · Side A, con Benny Benassi’s eBBQ.</p>
+      <div class="tags"><span class="tag free">Ingresso gratuito</span><span class="tag">Electronic</span></div>
+      <div class="cta"><a class="btn" href="https://www.instagram.com/electronic.bbq/">Info →</a></div>
+    </article>
+    <article class="show">
+      <div class="date"><b>26</b><span class="day">Domenica<br>Luglio</span></div>
+      <h3 class="title">JJOE</h3>
+      <div><span class="venue">Parco dei Popoli</span><br><span class="place">Castellarano (RE)</span></div>
+      <p class="desc">JJOE in Depeche Mode — #ULTRA Live Set · Side B, con Benny Benassi’s eBBQ.</p>
+      <div class="tags"><span class="tag free">Ingresso gratuito</span><span class="tag">Electronic</span></div>
+      <div class="cta"><a class="btn" href="https://www.instagram.com/electronic.bbq/">Info →</a></div>
+    </article>
+    <article class="show">
+      <div class="date"><b>30</b><span class="day">Giovedì<br>Luglio</span></div>
+      <h3 class="title">Note di Libertà</h3>
+      <div><span class="venue">Arena esterna Circolo Guerzoni</span><br><span class="place">Carpi (MO)</span></div>
+      <p class="desc">Tutti giù nel parco.</p>
+      <div class="tags"><span class="tag free">Ingresso gratuito</span></div>
+    </article>
+    <article class="show">
+      <div class="date"><b>31</b><span class="day">Venerdì<br>Luglio</span></div>
+      <h3 class="title">Olly &amp; The G Street Band</h3>
+      <div><span class="venue">Montefiorino</span><br><span class="place">Modena</span></div>
+      <p class="desc"><a href="https://www.instagram.com/supergulp__/">Super Gulp 2026 — Music Festival</a></p>
+      <div class="tags"><span class="tag free">Ingresso gratuito</span><span class="tag">Festival</span></div>
+      <div class="cta"><a class="btn" href="https://www.instagram.com/supergulp__/">Info →</a></div>
+    </article>
+  </div>
+</section>
+
+<section class="month" id="agosto">
+  <div class="month-head">
+    <h2 class="month-title"><small>2026</small>Agosto</h2>
+    <div class="count">5 date</div>
+  </div>
+  <div class="shows">
+    <article class="show">
+      <div class="date"><b>04</b><span class="day">Martedì<br>Agosto</span></div>
+      <h3 class="title">Gypsinduo</h3>
+      <div><span class="venue">B&amp;B Casa Gigli</span><br><span class="place">Via Castellino 47, Riolunato (MO)</span></div>
+      <p class="desc">Alcuni “NO” che hanno segnato la storia.</p>
+      <div class="lineup"><strong>Con:</strong> Claudio Ughetti — fisarmonica · Isabella Dapinguente — voce narrante</div>
+      <div class="tags"><span class="tag free">Ingresso gratuito</span></div>
+    </article>
+    <article class="show">
+      <div class="date"><b>05</b><span class="day">Mercoledì<br>Agosto</span></div>
+      <h3 class="title">Note di Libertà</h3>
+      <div><span class="venue">Rassegna Sant’Agostino</span><br><span class="place">Modena</span></div>
+      <p class="desc">Alcuni “NO” che hanno segnato la storia.</p>
+      <div class="lineup"><strong>Con:</strong> Claudio Ughetti — fisarmonica · Isabella Dapinguente — voce narrante</div>
+      <div class="tags"><span class="tag free">Ingresso gratuito</span></div>
+    </article>
+    <article class="show">
+      <div class="date"><b>12</b><span class="day">Mercoledì<br>Agosto</span></div>
+      <h3 class="title">Gypsinduo</h3>
+      <div><span class="venue">Marola</span><br><span class="place">Reggio Emilia</span></div>
+      <div class="lineup"><strong>Con:</strong> Claudio Ughetti — fisarmoniche · Gio Stefani — chitarre</div>
+      <div class="tags"><span class="tag free">Ingresso gratuito</span></div>
+    </article>
+    <article class="show">
+      <div class="date"><b>22</b><span class="day">Sabato<br>Agosto</span></div>
+      <h3 class="title">Gypsinduo</h3>
+      <div><span class="venue">Baita del Duca</span><br><span class="place">Piane di Mocogno (MO)</span></div>
+      <div class="lineup"><strong>Con:</strong> Claudio Ughetti — fisarmoniche · Gio Stefani — chitarre</div>
+      <div class="tags"><span class="tag free">Ingresso gratuito</span></div>
+    </article>
+    <article class="show">
+      <div class="date"><b>28</b><span class="day">Venerdì<br>Agosto</span></div>
+      <h3 class="title"><a href="https://www.instagram.com/irio_band/">☀️ I Rio</a></h3>
+      <div><span class="venue">Salvaterra</span><br><span class="place">Reggio Emilia</span></div>
+      <div class="tags"><span class="tag free">Ingresso gratuito</span></div>
+      <div class="cta"><a class="btn" href="https://www.facebook.com/pagina.ufficiale.iRIO/photos/sembra-che-chiuderemo-la-nostra-estate-con-questultima-data-vi-aspettiamo-per-fe/1584314513266876/">Info →</a></div>
+    </article>
+  </div>
+</section>
+
+<section class="month" id="settembre">
+  <div class="month-head">
+    <h2 class="month-title"><small>2026</small>Settembre</h2>
+    <div class="count">1 data</div>
+  </div>
+  <div class="shows">
+    <article class="show">
+      <div class="date"><b>19</b><span class="day">Sabato<br>Settembre</span></div>
+      <h3 class="title"><a href="https://www.instagram.com/irio_band/">☀️ I Rio</a></h3>
+      <div><span class="venue">Correggio</span><br><span class="place">Reggio Emilia</span></div>
+      <div class="tags"><span class="tag">Live band</span></div>
+      <div class="cta"><a class="btn" href="https://www.instagram.com/irio_band/">Info →</a></div>
+    </article>
+  </div>
+</section>
+
+<section class="month" id="ottobre">
+  <div class="month-head">
+    <h2 class="month-title"><small>2026</small>Ottobre</h2>
+    <div class="count">2 date</div>
+  </div>
+  <div class="shows">
+    <article class="show">
+      <div class="date"><b>17</b><span class="day">Sabato<br>Ottobre</span></div>
+      <h3 class="title"><a href="https://www.instagram.com/bifolk_/">☘️ BiFolk</a></h3>
+      <div><span class="venue">Fontanaluccia</span><br><span class="place">Modena</span></div>
+      <p class="desc">Festa della Castagna.</p>
+      <div class="lineup"><strong>Con:</strong> Gio Stefani — chitarra acustica, bodhran · Lucio Stefani — violino</div>
+      <div class="tags"><span class="tag">Folk</span><span class="tag">Festa</span></div>
+      <div class="cta"><a class="btn" href="https://www.instagram.com/bifolk_/">Info →</a></div>
+    </article>
+    <article class="show">
+      <div class="date"><b>24</b><span class="day">Sabato<br>Ottobre</span></div>
+      <h3 class="title">Radici in musica e parole</h3>
+      <div><span class="venue">To be defined</span><br><span class="place">Luogo in definizione</span></div>
+      <div class="lineup"><strong>Con:</strong> Isabella Dapinguente — voce narrante · Claudio Ughetti — fisarmoniche · Gio Stefani — chitarre · Lucio Stefani — violino · Len Stefani — flauto traverso</div>
+      <div class="tags"><span class="tag">Musica e parole</span></div>
+    </article>
+  </div>
+</section>
+
+<section class="month" id="novembre">
+  <div class="month-head">
+    <h2 class="month-title"><small>2026</small>Novembre</h2>
+    <div class="count">1 data</div>
+  </div>
+  <div class="shows">
+    <article class="show">
+      <div class="date"><b>22</b><span class="day">Domenica<br>Novembre</span></div>
+      <h3 class="title">Blues Sisters</h3>
+      <div><span class="venue">Carpi</span><br><span class="place">Modena</span></div>
+      <p class="desc">Blues, donne e verità.</p>
+      <div class="lineup"><strong>Con:</strong> Claudio Ughetti — fisarmonica · Isabella Dapinguente — voce narrante</div>
+      <div class="tags"><span class="tag">Blues</span></div>
+    </article>
+  </div>
+</section>
+
+<section class="projects" id="progetti">
+  <h2>I progetti live</h2>
+  <p>Oltre alle date soliste, Gio suona con progetti e band che attraversano folk irlandese, blues narrativo, colonne sonore, rock e musica elettronica.</p>
+  <div class="project-grid">
+    <a class="project" href="https://www.instagram.com/irio_band/"><h3>I Rio</h3><span>Live band</span></a>
+    <a class="project" href="https://www.instagram.com/gypsinduo/"><h3>Gypsinduo</h3><span>Chitarre e fisarmoniche</span></a>
+    <a class="project" href="https://www.instagram.com/bifolk_/"><h3>BiFolk</h3><span>Folk irlandese</span></a>
+    <a class="project" href="https://www.instagram.com/movieband_musiche_da_cinema/"><h3>Movieband</h3><span>Musica da cinema</span></a>
+    <a class="project" href="https://www.instagram.com/soundgap_ig/"><h3>SoundGAP</h3><span>Live project</span></a>
+    <a class="project" href="https://www.youtube.com/watch?v=EwVvsPcc2fQ&list=PLbwx3w_xTdA_AIPVNB1fCfJbeeL_DjQBu"><h3>JJoe</h3><span>Electronic live set</span></a>
+  </div>
+</section>
+
+</main>
+<footer class="wrap">
+  <strong>Gio Stefani</strong> · Next Shows 2026 · <a href="https://www.giostefani.com">giostefani.com</a>
+</footer>
+</body>
+</html>
